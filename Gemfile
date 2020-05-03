@@ -55,6 +55,9 @@ group :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'faker'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -68,4 +71,9 @@ gem "refile-mini_magick"
 gem 'jquery-rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+
+
+gem 'font-awesome-rails'
+
 gem 'jquery-rails'

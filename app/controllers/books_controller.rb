@@ -5,11 +5,12 @@ class BooksController < ApplicationController
 	  @book = Book.new
 	  @book2 = Book.find(params[:id])
 	  @user = @book2.user
+	  @book_comment = BookComment.new
   end
 
   def index
 	@book = Book.new
-  	@books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
+	@books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
   end
 
   def create
@@ -38,9 +39,9 @@ class BooksController < ApplicationController
   	end
   end
 
-  def delete
+  def destroy
   	@book = Book.find(params[:id])
-  	@book.destoy
+  	@book.destroy
   	redirect_to books_path, notice: "successfully delete book!"
   end
 
