@@ -1,0 +1,22 @@
+<table class="table">
+				<tr>
+				<td>
+				<%= link_to user_path(@user) do %>
+					<%= attachment_image_tag(@book2.user, :profile_image, :fill, 100, 100, fallback: "no-image-mini.jpg") %><br>
+					<%= @user.name %>
+				<% end %>
+					</td>
+					<td><%= link_to @book2.title, @book2 %></td>
+					<td><%= @book2.body %></td>
+					<td><%= link_to "#{@book2.book_comments.count} コメント", book_path(@book2.id) %></td>
+					<td>
+					<div id="likes_buttons_<%= @book2.id %>">	
+					<%= render partial: 'favorites/favorite', locals: { book: @book2} %>
+					</div>
+					</td>
+					<% if @book2.user_id == current_user.id %>
+					<td><%= link_to "Edit",edit_book_path(@book2), class: "btn-sm btn-success edit_book_#{@book2.id}" %></td>
+					<td><%= link_to "Destroy",@book2, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
+					<% end %>
+					</tr>
+			</table>
